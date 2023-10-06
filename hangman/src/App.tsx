@@ -3,10 +3,10 @@ import HangmanWord from "./HangmanWord"
 import Keyboard from "./Keyboard"
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
-        <div style={{
+    <div style={{
         maxWidth: "800px",
         display: "flex",
         flexDirection: "column",
@@ -26,6 +26,7 @@ function App() {
       <Keyboard/>
 
     </div>
+
   )
 }
 
