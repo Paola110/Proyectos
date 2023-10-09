@@ -17,8 +17,8 @@
 
 int main (){
 
-  int opcion, opcion2, n, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
-  int matriz4[4][4]; 
+  int opcion, opcion2, n, m, escalar, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int matriz4[4][4];
   
   do {
   printf("\n\n\t\tMenu");
@@ -39,12 +39,7 @@ int main (){
     printf("\nError: Debes darme un numero entre 1 y 9\n");
       scanf("%d", &opcion);
   }
-  /*
-  if (opcion== 1 || opcion==2 || opcion==3){
-    opcion2=opcion;
-    opcion=1;
-  }
-  */
+  
   switch (opcion){
     case 1:
     case 2:
@@ -89,7 +84,19 @@ int main (){
           columna[i]=0;
         }
       break;   
-  }
+  case 4:
+        printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
+        scanf("%d, %d", &n, &m);
+        escalar= n*m;
+        int matriz[n][m];
+        for(i=0; i<n; i++){
+        for (j=0; j<m; j++){
+        printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
+        scanf("%d", &matriz[i][j]);
+        }
+        }
+    break;
+    }
     } while (opcion!=9);
   return 0;
 }
