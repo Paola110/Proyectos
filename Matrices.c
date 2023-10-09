@@ -18,7 +18,7 @@
 int main (){
 
   int opcion, opcion2, n, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
-  int matriz4[4][4]={{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}; 
+  int matriz4[4][4]; 
   
   do {
   printf("\n\n\t\tMenu");
@@ -54,7 +54,6 @@ int main (){
             matriz4[i][j] = 0;
           }
         }
-
         for(i=0; i<4; i++){
         for (j=0; j<4; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
@@ -73,16 +72,21 @@ int main (){
         printf("\n");
         }
         printf("\n");
-        if(opcion2 == 1){
+        if(opcion == 1){
           printf("\nLa suma de todos los numeros es: %d\n", todos);
-        } else if (opcion2 == 2){
+          todos=0;
+        } else if (opcion == 2){
           for (i=0; i<4; i++){
             printf("\nLa suma de los numeros de la fila %d es %d ", i+1, fila[i]);
           }
-        } else if ( opcion2== 3){
+        } else if ( opcion == 3){
           for(i=0; i<4; i++){
             printf("\nLa suma de los numeros de la columna %d es %d ", i+1, columna[i]);
           }
+        }
+        for (i=0; i<4; i++){
+          fila[i]=0;
+          columna[i]=0;
         }
       break;   
   }  
