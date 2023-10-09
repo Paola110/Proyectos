@@ -17,14 +17,16 @@
 
 int main (){
 
-  int opcion, opcion2, n, i=0, j=0, matriz4[4][4], todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int opcion, opcion2, n, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int matriz4[4][4]={{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}}; 
   
   do {
-  printf("\n\t\tMenu\n");
+  printf("\n\n\t\tMenu");
+  printf("\n          Elige una opcion");
   printf("\n1. Suma de los elementos de una matriz");
   printf("\n2. Suma de los elementos de una matriz por fila");
   printf("\n3. Suma de los elementos de una matriz por columna");
-  printf("\n4. Multiplicar una matriz por un escalar (numero random)");
+  printf("\n4. Multiplicar una matriz por un escalar (numero al azar)");
   printf("\n5. Suma de dos matrices cuadradas");
   printf("\n6. Ordenar una matriz de menor a mayor");
   printf("\n7. Ordenar una matriz de mayor a menor");
@@ -37,18 +39,29 @@ int main (){
     printf("\nError: Debes darme un numero entre 1 y 9\n");
       scanf("%d", &opcion);
   }
+  /*
   if (opcion== 1 || opcion==2 || opcion==3){
     opcion2=opcion;
     opcion=1;
   }
+  */
   switch (opcion){
     case 1:
+    case 2:
+    case 3:
+        for (i=0; i<4; i++){
+          for (j=0; j<4; j++){
+            matriz4[i][j] = 0;
+          }
+        }
+
         for(i=0; i<4; i++){
         for (j=0; j<4; j++){
-        printf("Dame el numero de la posicion %d , %d\n", i+1, j+1);
+        printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
         scanf("%d", &matriz4[i][j]);
         todos= todos + matriz4[i][j];
         fila[i] = fila[i]+ matriz4[i][j];
+        columna[j] = columna[j]+ matriz4[i][j];
         }
         }
           
@@ -65,9 +78,13 @@ int main (){
           for (i=0; i<4; i++){
             printf("\nLa suma de los numeros de la fila %d es %d ", i+1, fila[i]);
           }
+        } else if ( opcion2== 3){
+          for(i=0; i<4; i++){
+            printf("\nLa suma de los numeros de la columna %d es %d ", i+1, columna[i]);
+          }
         }
       break;   
-  }
+  }  
   
   } while (opcion!=9);
   return 0;
