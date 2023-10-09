@@ -64,14 +64,15 @@ int main (){
         columna[j] = columna[j]+ matriz4[i][j];
         }
         }
-          
+
+        printf("\n");  
         for(i=0; i<4; i++){
         for (j=0; j<4; j++){
           printf("%d ", matriz4[i][j]);
         }
         printf("\n");
         }
-
+        printf("\n");
         if(opcion2 == 1){
           printf("\nLa suma de todos los numeros es: %d\n", todos);
         } else if (opcion2 == 2){
