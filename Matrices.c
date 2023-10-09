@@ -89,8 +89,7 @@ int main (){
           columna[i]=0;
         }
       break;   
-  }  
-  
-  } while (opcion!=9);
+  }
+    } while (opcion!=9);
   return 0;
 }
