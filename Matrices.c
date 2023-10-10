@@ -17,7 +17,7 @@
 
 int main (){
 
-  int opcion=0, opcion2=0, n=0, m=0, escalar=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int opcion=0, numero=0, n=0, m=0, escalar=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
   int matriz4[4][4];
   
   do {
@@ -88,6 +88,7 @@ int main (){
   case 6:
   case 7:
   case 8:
+        }
         do{
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
         scanf("%d %d", &n, &m);
@@ -95,11 +96,15 @@ int main (){
           printf("Error: No pueden ser filas o columnas negativas.\n");
         }
         }while (n<0 || m<0);
-
+        int matriz[n][m], matriz2[n][m];
+        for (i=0; i<4; i++){
+          for (j=0; j<4; j++){
+            matriz[i][j] = 0;
+            matriz2[i][j]=0;
+          }
         if(opcion==4){
         printf("\nDame el numero por el que quiere multipliacar (escalar): \n");
         scanf("%d", &escalar);
-        int matriz[n][m], matriz2[n][m];
         for(i=0; i<n; i++){
         for (j=0; j<m; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
@@ -122,6 +127,46 @@ int main (){
         }
         printf("\n");
         printf("El escalar era %d", escalar);
+        }
+        if (opcion==6 || opcion==7){
+        for(i=0; i<n; i++){
+        for (j=0; j<m; j++){
+        printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
+        scanf("%d", &matriz[i][j]);
+        matriz2[i][j]= matriz[i][j];
+        }
+        }
+          for (i=0; i<n; i++){
+            for (j=0; j<m-1; j++){
+              for (i=0;i<n; i++){
+                for(j=0; j<m-1; j++){
+                    if (matriz2[i][j+1]< matriz2[i][j]){
+                    numero = matriz2[i][j+1];
+                    matriz2[i][j+1] = matriz2[i][j];
+                    matriz2[i][j]= numero;
+                    }
+                }
+              }
+              if (matriz2[i+1][j]<matriz2[i][j]){
+                numero = matriz2[i+1][j];
+                matriz2[i+1][j] = matriz2[i][j];
+                matriz2[i][j]= numero;
+              }
+            }
+          }
+          for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %d  ", matriz[i][j]);
+          }
+          printf("\n");
+          }
+          printf("\n");
+          for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %d  ", matriz2[i][j]);
+          }
+          printf("\n");
+          }
         }
     break;
     }
