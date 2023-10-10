@@ -85,8 +85,18 @@ int main (){
         }
       break;   
   case 4:
+  case 6:
+  case 7:
+  case 8:
+        do{
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
         scanf("%d %d", &n, &m);
+        if (n<0 || m<0){
+          printf("Error: No pueden ser filas o columnas negativas.\n");
+        }
+        }while (n<0 || m<0);
+
+        if(opcion==4){
         printf("\nDame el numero por el que quiere multipliacar (escalar): \n");
         scanf("%d", &escalar);
         int matriz[n][m], matriz2[n][m];
@@ -112,6 +122,7 @@ int main (){
         }
         printf("\n");
         printf("El escalar era %d", escalar);
+        }
     break;
     }
     } while (opcion!=9);
