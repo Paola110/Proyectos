@@ -17,7 +17,7 @@
 
 int main (){
 
-  int opcion, opcion2, n, m, escalar, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int opcion=0, opcion2=0, n=0, m=0, escalar=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
   int matriz4[4][4];
   
   do {
@@ -86,15 +86,32 @@ int main (){
       break;   
   case 4:
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
-        scanf("%d, %d", &n, &m);
-        escalar= n*m;
-        int matriz[n][m];
+        scanf("%d %d", &n, &m);
+        printf("\nDame el numero por el que quiere multipliacar (escalar): \n");
+        scanf("%d", &escalar);
+        int matriz[n][m], matriz2[n][m];
         for(i=0; i<n; i++){
         for (j=0; j<m; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
         scanf("%d", &matriz[i][j]);
+        matriz2[i][j] = matriz[i][j] * escalar;
         }
         }
+        for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %d  ", matriz[i][j]);
+          }
+          printf("\n");
+        }
+        printf("\n");
+        for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %d  ", matriz2[i][j]);
+          }
+          printf("\n");
+        }
+        printf("\n");
+        printf("El escalar era %d", escalar);
     break;
     }
     } while (opcion!=9);
