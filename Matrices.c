@@ -17,7 +17,7 @@
 
 int main (){
 
-  int opcion=0, numero=0, n=0, m=0, escalar=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int opcion=0, numero=0, n=0, m=0, escalar=0,x=0, y=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
   int matriz4[4][4];
   
   do {
@@ -137,20 +137,15 @@ int main (){
         }
         }
           for (i=0; i<n; i++){
-            for (j=0; j<m-1; j++){
-              for (i=0;i<n; i++){
-                for(j=0; j<m-1; j++){
-                    if (matriz2[i][j+1]< matriz2[i][j]){
-                    numero = matriz2[i][j+1];
-                    matriz2[i][j+1] = matriz2[i][j];
-                    matriz2[i][j]= numero;
+            for (j=0; j<m; j++){
+              for (x=0;i<n; i++){
+                for(y=0; j<m; j++){
+                    if (matriz2[x][y]< matriz2[i][j]){
+                    numero = matriz2[i][j];
+                    matriz2[i][j] = matriz2[x][y];
+                    matriz2[x][y]= numero;
                     }
                 }
-              }
-              if (matriz2[i+1][j]<matriz2[i][j]){
-                numero = matriz2[i+1][j];
-                matriz2[i+1][j] = matriz2[i][j];
-                matriz2[i][j]= numero;
               }
             }
           }
