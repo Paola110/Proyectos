@@ -180,11 +180,12 @@ int main (){
           printf("\n");
           }
         }
-
+        i=n;
         if (opcion==7){
           printf("\nLos numeros ordenados de mayor a menor son: \n");
-          for (i=n ; i>0; i--){
-          for (j=m ; j>0; j--){
+          for (i; i>0; i--){
+            j=m;
+          for (j; j>0; j--){
             printf(" %.2f  ", matriz2[i][j]);
           }
           printf("\n");
