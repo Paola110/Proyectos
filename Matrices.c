@@ -31,7 +31,7 @@ int main (){
       printf("\n1. Suma de los elementos de una matriz");
       printf("\n2. Suma de los elementos de una matriz por fila");
       printf("\n3. Suma de los elementos de una matriz por columna");
-      printf("\n4. Multiplicar una matriz por un escalar (número al azar)");
+      printf("\n4. Multiplicar una matriz por un escalar");
       printf("\n5. Suma de dos matrices cuadradas");
       printf("\n6. Ordenar una matriz de menor a mayor");
       printf("\n7. Ordenar una matriz de mayor a menor");
