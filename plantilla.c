@@ -6,8 +6,11 @@
 */
 
 #include <stdio.h>
+#include <locale.h>
+
 
 include main (){
-  
+    setlocale( LC_ALL, "" );
+    
   return 0;
 }

@@ -14,8 +14,11 @@
 */
 
 #include <stdio.h>
+#include <locale.h>
 
 int main (){
+
+    setlocale( LC_ALL, "" );
 
   int opcion=0, numero=0, n=0, m=0,x=0, y=0, i=0, j=0, todos=0, sf=0;
   int fila[4]={0, 0, 0, 0}, columna[4]= {0, 0, 0, 0};
@@ -24,7 +27,7 @@ int main (){
   
   do{
       printf("\n\n\t\tMenu");
-      printf("\n          Elige una opcion");
+      printf("\n          Elige una opción");
       printf("\n1. Suma de los elementos de una matriz");
       printf("\n2. Suma de los elementos de una matriz por fila");
       printf("\n3. Suma de los elementos de una matriz por columna");
@@ -63,6 +66,8 @@ int main (){
 
               printf("\n");  
 
+              printf("\nLos numeros originales fueron: \n");
+
               for(i=0; i<4; i++){
                   for (j=0; j<4; j++){
                       printf("%d ", matriz4[i][j]);
@@ -97,10 +102,10 @@ int main (){
               do{
                   printf("\nDame el numero entero de filas y columnas (sera cuadrada) de tu matriz separadas por enter o espacio: \n");
                   scanf("%d", &n);
-                  if (n<0){
-                      printf("Error: No pueden ser filas o columnas negativas.\n");
+                  if (n<1){
+                      printf("Error: No pueden ser filas o columnas no puede ser menor a 1.\n");
                   }
-              }while (n<0);
+              }while (n<1);
 
               if (opcion==5){
                   float matriz51[n][n], matriz52[n][n], matriz53[n][n];
@@ -162,11 +167,11 @@ int main (){
 
               if (opcion==8){
                 for(i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                        i==j ? printf("( 1 )") : printf("( 0 )");
+                      for (j=0; j<n; j++){
+                        i==j ? printf(" 1 ") : printf(" 0 ");
                       }
                       printf("\n");
-                  }
+                }
               }
 
           break;
@@ -176,10 +181,10 @@ int main (){
               do{
                   printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
                   scanf("%d %d", &n, &m);
-                  if (n<0 || m<0){
-                      printf("Error: No pueden ser filas o columnas negativas.\n");
+                  if (n<1 || m<1){
+                      printf("Error: No pueden ser filas o columnas menores a 1.\n");
                   }
-              }while (n<0 || m<0);
+              }while (n<1 || m<1);
 
               float matriz[n][m], matriz2[n][m];
           
@@ -201,7 +206,9 @@ int main (){
                           matriz2[i][j] = matriz[i][j] * escalar;
                       }
                   }
-                  
+                
+                    printf("\nLos numeros originales fueron: \n");
+
                   for (i=0; i<n; i++){
                       for (j=0; j<m; j++){
                           printf(" %.2f ", matriz[i][j]);
@@ -209,7 +216,7 @@ int main (){
                       printf("\n");
                   }
 
-                  printf("\n");
+                    printf("\nLos resultados fueron: \n");                  
 
                   for (i=0; i<n; i++){
                       for (j=0; j<m; j++){
