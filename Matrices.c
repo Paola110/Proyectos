@@ -89,61 +89,61 @@ int main (){
   case 5:
         do{
         printf("\nDame el numero entero de filas y columnas (sera cuadrada) de tu matriz separadas por enter o espacio: \n");
-        scanf("%d %d", &n);
+        scanf("%d", &n);
         if (n<0){
           printf("Error: No pueden ser filas o columnas negativas.\n");
         }
         }while (n<0);
-
+      if (opcion==5){
         float matriz51[n][n], matriz52[n][n], matriz53[n][n];
-        for (i=0; i<4; i++){
-          for (j=0; j<4; j++){
+      
+        for (i=0; i<n; i++){
+          for (j=0; j<n; j++){
             matriz51[i][j] = 0;
             matriz52[i][j]=0;
+            matriz53[i][j]=0;
           }
         }
-        printf("\nIngresa los datos de la primera matriz\n")
+      
+        printf("\nIngresa los datos de la primera matriz\n");
         for(i=0; i<n; i++){
-        for (j=0; j<m; j++){
+        for (j=0; j<n; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
         scanf("%f", &matriz51[i][j]);
-        matriz53[i][j]= matriz51[i][j];
         }
         }
-        printf("\nIngresa los datos de la segunda matriz\n")
+        printf("\nIngresa los datos de la segunda matriz\n");
         for(i=0; i<n; i++){
-        for (j=0; j<m; j++){
+        for (j=0; j<n; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
         scanf("%f", &matriz52[i][j]);
-        matriz53[i][j] += matriz52[i][j];
+        matriz53[i][j] = matriz51[i][j] + matriz52[i][j];
         }
         }
         printf("\nLos numeros originales de la primera fueron: \n");
           for (i=0; i<n; i++){
-          for (j=0; j<m; j++){
+          for (j=0; j<n; j++){
             printf(" %.2f ", matriz51[i][j]);
           }
           printf("\n");
           }
         printf("\nLos numeros originales de la segunda fueron: \n");
           for (i=0; i<n; i++){
-          for (j=0; j<m; j++){
+          for (j=0; j<n; j++){
             printf(" %.2f ", matriz52[i][j]);
           }
           printf("\n");
           }
         printf("\nSumando los numeros de ambas da: \n");
           for (i=0; i<n; i++){
-          for (j=0; j<m; j++){
+          for (j=0; j<n; j++){
             printf(" %.2f ", matriz53[i][j]);
           }
           printf("\n");
           }
-
-  case 4:
-  case 6:
-  case 7:
-  case 8:
+      }
+          break;
+  case 4: case 6: case 7: case 8:
         do{
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
         scanf("%d %d", &n, &m);
