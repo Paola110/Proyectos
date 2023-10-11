@@ -17,8 +17,10 @@
 
 int main (){
 
-  int opcion=0, numero=0, n=0, m=0, escalar=0,x=0, y=0, i=0, j=0, todos=0, sf=0, fila[4]={0, 0, 0, 0}, sc=0, columna[4]= {0, 0, 0, 0};
+  int opcion=0, numero=0, n=0, m=0,x=0, y=0, i=0, j=0, todos=0, sf=0;
+  int fila[4]={0, 0, 0, 0}, columna[4]= {0, 0, 0, 0};
   int matriz4[4][4];
+  float escalar =0;
   
   do {
   printf("\n\n\t\tMenu");
@@ -88,7 +90,7 @@ int main (){
   case 6:
   case 7:
   case 8:
-        }
+        
         do{
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
         scanf("%d %d", &n, &m);
@@ -96,51 +98,69 @@ int main (){
           printf("Error: No pueden ser filas o columnas negativas.\n");
         }
         }while (n<0 || m<0);
-        int matriz[n][m], matriz2[n][m];
+
+        float matriz[n][m], matriz2[n][m];
         for (i=0; i<4; i++){
           for (j=0; j<4; j++){
             matriz[i][j] = 0;
             matriz2[i][j]=0;
           }
+        }  
+
         if(opcion==4){
         printf("\nDame el numero por el que quiere multipliacar (escalar): \n");
-        scanf("%d", &escalar);
+        scanf("%f", &escalar);
+
         for(i=0; i<n; i++){
         for (j=0; j<m; j++){
         printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
-        scanf("%d", &matriz[i][j]);
+        scanf("%f", &matriz[i][j]);
         matriz2[i][j] = matriz[i][j] * escalar;
         }
         }
+        
         for (i=0; i<n; i++){
           for (j=0; j<m; j++){
-            printf(" %d  ", matriz[i][j]);
+            printf(" %.2f ", matriz[i][j]);
           }
           printf("\n");
         }
+
         printf("\n");
+
         for (i=0; i<n; i++){
           for (j=0; j<m; j++){
-            printf(" %d  ", matriz2[i][j]);
+            printf(" %.2f  ", matriz2[i][j]);
           }
           printf("\n");
         }
+
         printf("\n");
-        printf("El escalar era %d", escalar);
+        printf("El escalar era %.2f", escalar);
         }
+
         if (opcion==6 || opcion==7){
+
         for(i=0; i<n; i++){
         for (j=0; j<m; j++){
-        printf("Dame el numero entero de la posicion %d , %d\n", i+1, j+1);
-        scanf("%d", &matriz[i][j]);
+        printf("Dame el numero de la posicion %d , %d\n", i+1, j+1);
+        scanf("%f", &matriz[i][j]);
         matriz2[i][j]= matriz[i][j];
         }
         }
+          printf("\nLos numeros originales fueron: \n");
+          for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %.2f ", matriz[i][j]);
+          }
+          printf("\n");
+          }
+    
           for (i=0; i<n; i++){
             for (j=0; j<m; j++){
-              for (x=0;i<n; i++){
-                for(y=0; j<m; j++){
-                    if (matriz2[x][y]< matriz2[i][j]){
+              for (x=0;x<n; x++){
+                for(y=0; y<m; y++){
+                    if (matriz2[i][j]<matriz2[x][y]){
                     numero = matriz2[i][j];
                     matriz2[i][j] = matriz2[x][y];
                     matriz2[x][y]= numero;
@@ -149,19 +169,28 @@ int main (){
               }
             }
           }
+
+          printf("\n");
+        if (opcion==6){
+          printf("\nLos numeros ordenados de menor a mayor son: \n");
           for (i=0; i<n; i++){
           for (j=0; j<m; j++){
-            printf(" %d  ", matriz[i][j]);
+            printf(" %.2f  ", matriz2[i][j]);
           }
           printf("\n");
           }
-          printf("\n");
-          for (i=0; i<n; i++){
-          for (j=0; j<m; j++){
-            printf(" %d  ", matriz2[i][j]);
+        }
+
+        if (opcion==7){
+          printf("\nLos numeros ordenados de mayor a menor son: \n");
+          for (i=n ; i>0; i--){
+          for (j=m ; j>0; j--){
+            printf(" %.2f  ", matriz2[i][j]);
           }
           printf("\n");
           }
+        }
+          
         }
     break;
     }
