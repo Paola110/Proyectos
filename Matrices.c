@@ -44,7 +44,7 @@ int main (){
       
       switch (opcion){
           case 1: case 2: case 3:
-
+          
               for (i=0; i<4; i++){
                   for (j=0; j<4; j++){
                       matriz4[i][j] = 0;
