@@ -103,7 +103,7 @@ int main (){
                   printf("\nDame el número entero de filas y columnas (sera cuadrada) de tu matriz separadas por enter o espacio: \n");
                   scanf("%d", &n);
                   if (n<1){
-                      printf("Error: No pueden ser filas o columnas no puede ser menor a 1.\n");
+                      printf("Error: No pueden ser filas o columnas menores a 1.\n");
                   }
               }while (n<1);
 
