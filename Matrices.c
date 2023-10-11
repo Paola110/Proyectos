@@ -90,7 +90,6 @@ int main (){
   case 6:
   case 7:
   case 8:
-        
         do{
         printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
         scanf("%d %d", &n, &m);
@@ -155,7 +154,8 @@ int main (){
           }
           printf("\n");
           }
-    
+
+        if (opcion==6){
           for (i=0; i<n; i++){
             for (j=0; j<m; j++){
               for (x=0;x<n; x++){
@@ -170,8 +170,6 @@ int main (){
             }
           }
 
-          printf("\n");
-        if (opcion==6){
           printf("\nLos numeros ordenados de menor a mayor son: \n");
           for (i=0; i<n; i++){
           for (j=0; j<m; j++){
@@ -180,13 +178,26 @@ int main (){
           printf("\n");
           }
         }
-        i=n;
         if (opcion==7){
+
+          for (i=0; i<n; i++){
+            for (j=0; j<m; j++){
+              for (x=0;x<n; x++){
+                for(y=0; y<m; y++){
+                    if (matriz2[i][j]>matriz2[x][y]){
+                    numero = matriz2[i][j];
+                    matriz2[i][j] = matriz2[x][y];
+                    matriz2[x][y]= numero;
+                    }
+                }
+              }
+            }
+          }
+
           printf("\nLos numeros ordenados de mayor a menor son: \n");
-          for (i; i>0; i--){
-            j=m;
-          for (j; j>0; j--){
-            printf(" %.2f  ", matriz2[i][j]);
+          for (i=0; i<n; i++){
+          for (j=0; j<m; j++){
+            printf(" %.2f ", matriz2[i][j]);
           }
           printf("\n");
           }
