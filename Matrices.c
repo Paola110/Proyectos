@@ -92,7 +92,7 @@ int main (){
 
           break; 
           
-          case 5:
+          case 5: case 8:
 
               do{
                   printf("\nDame el numero entero de filas y columnas (sera cuadrada) de tu matriz separadas por enter o espacio: \n");
@@ -159,9 +159,19 @@ int main (){
                       printf("\n");
                   }
               }
+
+              if (opcion==8){
+                for(i=0; i<n; i++){
+                      for (j=0; j<m; j++){
+                        i==j ? printf("( 1 )") : printf("( 0 )");
+                      }
+                      printf("\n");
+                  }
+              }
+
           break;
           
-          case 4: case 6: case 7: case 8:
+          case 4: case 6: case 7:
           
               do{
                   printf("\nDame el numero entero de filas y el numero entero de columnas de tu matriz separadas por enter o espacio: \n");
@@ -282,9 +292,6 @@ int main (){
                           printf("\n");
                       }
                   }   
-              }
-              if(opcion==8){
-
               }
           break; 
       }
