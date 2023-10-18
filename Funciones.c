@@ -15,8 +15,8 @@ void sum (float a,float b);
 void res ();
 float mult(float a, float b);
 float div ();
-void pot (float a, float b);
-
+void potencia (float a, float b);
+void fact();
 
 int main (){
 
@@ -41,6 +41,10 @@ int main (){
         } else if (op==6){
           printf("\n\nDame el numero a factrizar: ");
           scanf("%f",&n1);
+          while (n1<0){
+            printf("Error: No se puede factorizar un numero negativo.\nDame el numero a factrizar: ");
+            scanf("%f", &n1);
+          }
         }
       }while(op<1 || op>7);
       
@@ -64,7 +68,7 @@ int main (){
           printf("\n");
           break;
         case 5:
-          pot(n1,n2);
+          potencia(n1,n2);
           printf("\n");
           break;
         case 6:
@@ -104,7 +108,20 @@ float div()
   return (division);
 }
 
-void pot(float a, float b)
+void potencia(float x, float y)
 {
-  printf("\nLa potencia de %.4f a la %.4f, es %.4f", a, b, pow(a,b))
+  float result = powf( x, y);
+  printf("\nLa potencia de %.4f a la %.4f, es %.4f", x, y, result);
+}
+
+void fact()
+{
+  float a=n1, factorial=1;
+  int i=0;
+
+  while(n1>0){
+    factorial*=n1;
+    n1--;
+  }
+  printf("El factorial del numero %f es %f",a, factorial)
 }
