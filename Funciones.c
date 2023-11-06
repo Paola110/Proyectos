@@ -34,15 +34,15 @@ int main (){
           printf("\nError: debe ser una opcion entre 1 y 7\n\nElige una opcion: ");
         }
         if (op>0 && op<6){
-          printf("\n\nDame el primer numero: ");
+          printf("\n\nDame el primer número: ");
           scanf("%f",&n1);
-          printf("\n\nDame el segundo numero: ");
+          printf("\n\nDame el segundo número: ");
           scanf("%f",&n2);
         } else if (op==6){
-          printf("\n\nDame el numero a factrizar: ");
+          printf("\n\nDame el número a factrizar: ");
           scanf("%f",&n1);
           while (n1<0){
-            printf("Error: No se puede factorizar un numero negativo.\nDame el numero a factrizar: ");
+            printf("Error: No se puede factorizar un número negativo.\nDame el número a factrizar: ");
             scanf("%f", &n1);
           }
         }
@@ -59,7 +59,7 @@ int main (){
           break;
         case 3:
           resultado = mult(n1,n2);
-          printf("\nLa multiplicación de ambos numeros es %.4f", resultado);
+          printf("\nLa multiplicación de ambos números es %.4f", resultado);
           printf("\n");
           break;
         case 4:
@@ -72,6 +72,8 @@ int main (){
           printf("\n");
           break;
         case 6:
+          fact();
+          printf("\n");
           break;
         case 7:
           printf("Salir");
@@ -87,7 +89,7 @@ int main (){
 
 void sum(float a, float b)
 {
-  printf("\nLa suma de ambos numeros es %.4f", a+b);
+  printf("\nLa suma de ambos números es %.4f", a+b);
 }
 
 void res()
@@ -123,5 +125,6 @@ void fact()
     factorial*=n1;
     n1--;
   }
-  printf("El factorial del numero %f es %f",a, factorial)
+  printf("\nEl factorial del número %f es %f",a, factorial);
 }
+
