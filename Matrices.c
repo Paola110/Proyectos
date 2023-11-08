@@ -1,307 +1,84 @@
+#include <bits/stdc++.h>
+#include <stdio.h>
+
 /*
-  Menu con 8 ejercicios con matrices
-    1. De una matriz de 4*4 con números enteros imprima la matriz y la suma de todos los elementos de la matriz.
-    2. De una matriz de 4*4 con números enteros imprima la matriz y la suma de los elementos por fila.
-    3. De una matriz de 4*4 con números enteros imprima la matriz y la suma de los elementos por columna.
-    4. Multiplicar una matriz n*n por un escalar, dejando el resultado en otra matriz, al final imprimir las dos matrices y el escalar
-    5. Suma de dos matrices cuadradas, dejando el resultado en una tercera matriz e imprimir las tres matrices 
-    6. Ordenar una matriz de menor a mayor y mostrar en pantalla la matriz original, la matriz ordenada de menor a mayor
-    7. Ordenar una matriz de mayor a menor y mostrar en pantalla la matriz original, la matriz ordenada de mayor a menor    
-    8. Crear una matriz identidad y mostrarla en la pantalla
-  Paola Montserrat Osorio García
-  ICI 1º
-  09/10/23
+
+Osorio Garcìa Paola Montserrat
+ICI 1º
+
+Multiplicacion de Matrices algebraicas
+
 */
 
-#include <stdio.h>
-#include <locale.h>
+using namespace std;
+#define SPEED ios_base::sync_with_stdio(0);
 
-int main (){
+int main() {
+    SPEED; 
 
-    setlocale( LC_ALL, "" );
+    int A[10][10],B[10][10],R[10][10];
+    int columA, filA, columB,filB;
+    int i,j,z;
 
-  int opcion=0, numero=0, n=0, m=0,x=0, y=0, i=0, j=0, todos=0, sf=0;
-  int fila[4]={0, 0, 0, 0}, columna[4]= {0, 0, 0, 0};
-  int matriz4[4][4];
-  float escalar =0;
-  
-  do{
-      printf("\n\n\t\tMenú");
-      printf("\n          Elige una opción");
-      printf("\n1. Suma de los elementos de una matriz");
-      printf("\n2. Suma de los elementos de una matriz por fila");
-      printf("\n3. Suma de los elementos de una matriz por columna");
-      printf("\n4. Multiplicar una matriz por un escalar");
-      printf("\n5. Suma de dos matrices cuadradas");
-      printf("\n6. Ordenar una matriz de menor a mayor");
-      printf("\n7. Ordenar una matriz de mayor a menor");
-      printf("\n8. Crear una matriz identidad");
-      printf("\n9. Salir\n");
-  
-      scanf("%d", &opcion);
-      
-      while(opcion<1 || opcion>9){
-          printf("\nError: Debes darme un número entre 1 y 9\n");
-          scanf("%d", &opcion);
-      }
-      
-      switch (opcion){
-          case 1: case 2: case 3:
-          
-              for (i=0; i<4; i++){
-                  for (j=0; j<4; j++){
-                      matriz4[i][j] = 0;
-                  }
-              }
+    srand (time (NULL));
 
-              for(i=0; i<4; i++){
-                  for (j=0; j<4; j++){
-                      printf("Dame el número entero de la posicion %d , %d\n", i+1, j+1);
-                      scanf("%d", &matriz4[i][j]);
-                      todos= todos + matriz4[i][j];
-                      fila[i] = fila[i]+ matriz4[i][j];
-                      columna[j] = columna[j]+ matriz4[i][j];
-                  }
-              }
+    do{
+        printf("\n\nBienvenido al menu: \n\n");
+        printf("\n Proporciona la dimension de la matriz A, minimo 2 m%cximo 10, fila y columna, separados por comas \n", 160);
+        scanf ("%d,%d",&filA, &columA);
+        printf("\n Proporciona la dimension de la matriz B, minimo 2 m%cximo 10, fila y columna, separados por comas \n", 160);
+        scanf ("%d,%d",&filB,&columB);
+        if (columA!=filB){
+            printf("\nNo se puede hacer la multiplicacion si el n%cmero de filas de la matriz A\nes diferente del n%cmero de columnas de la matriz B, ingresa nuevamente los datos.", 163, 163);
+        }
+        if (columA<2||columA>10||columB<2||columB>10||filA<2||filA>10){
+            printf("\nLas dimenciones deben ser de minimo 2 y m%cximo 10\n\nProporciona los datos nuevamente\n", 160);
+        }
+    } while (columA<2||columA>10||columB<2||columB>10||filA<2||filA>10||columA!=filB);
+    
+    printf ("\n\n Matriz A\n\n");
+    
+    for(i=0;i<filA;i++) {
+        printf ("\n");
+        for(j=0;j<columA;j++){
+            A[i][j]=rand()%9+1;
+            printf("%d\t",A[i][j]);
+        }
+    }
 
-              printf("\n");  
+    printf ("\n\n Matriz B\n\n");
 
-              printf("\nLos números originales fueron: \n");
+    for(i=0;i<filB;i++){
+        printf ("\n");
+        for(j=0;j<columB;j++){
+            B[i][j]=rand()%9+1;
+            printf("%d\t",B[i][j]);
+        }
+    }
 
-              for(i=0; i<4; i++){
-                  for (j=0; j<4; j++){
-                      printf("%d ", matriz4[i][j]);
-                  }
-                  printf("\n");
-              }
-          
-              printf("\n");
-          
-              if(opcion == 1){
-                  printf("\nLa suma de todos los números es: %d\n", todos);
-                  todos=0;
-              } else if (opcion == 2){
-                  for (i=0; i<4; i++){
-                      printf("\nLa suma de los números de la fila %d es %d ", i+1, fila[i]);
-                  }
-              } else if ( opcion == 3){
-                  for(i=0; i<4; i++){
-                      printf("\nLa suma de los números de la columna %d es %d ", i+1, columna[i]);
-                  }
-              }
+    //Multiplicar Matrices
 
-              for (i=0; i<4; i++){
-                  fila[i]=0;
-                  columna[i]=0;
-              }
+    printf("\n\nMatriz resultante\n\n");
 
-          break; 
-          
-          case 5: case 8:
+    for(i=0;i<filA;i++){
+        for(j=0;j<columB;j++){
+            R[i][j]=0;
+            for(z=0;z<filB;z++){
+                R[i][j]=R[i][j]+(A[i][z]*B[z][j]);
+            }
+        }
+    }
 
-              do{
-                  printf("\nDame el número entero de filas y columnas (sera cuadrada) de tu matriz separadas por enter o espacio: \n");
-                  scanf("%d", &n);
-                  if (n<1){
-                      printf("Error: No pueden ser filas o columnas menores a 1.\n");
-                  }
-              }while (n<1);
+    for(i=0;i<filA;i++){
+        printf("\n");
+        for(j=0;j<columB;j++){
 
-              if (opcion==5){
-                  float matriz51[n][n], matriz52[n][n], matriz53[n][n];
-              
-                  for (i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          matriz51[i][j] = 0;
-                          matriz52[i][j]=0;
-                          matriz53[i][j]=0;
-                      }
-                  }
-              
-                  printf("\nIngresa los datos de la primera matriz\n");
+            printf("\t%d",R[i][j]);
 
-                  for(i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          printf("Dame el número entero de la posicion %d , %d\n", i+1, j+1);
-                          scanf("%f", &matriz51[i][j]);
-                      }
-                  }
-                  
-                  printf("\nIngresa los datos de la segunda matriz\n");
-                  
-                  for(i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          printf("Dame el número entero de la posicion %d , %d\n", i+1, j+1);
-                          scanf("%f", &matriz52[i][j]);
-                          matriz53[i][j] = matriz51[i][j] + matriz52[i][j];
-                      }
-                  }
-                  
-                  printf("\nLos números originales de la primera fueron: \n");
-                  
-                  for (i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          printf(" %.2f ", matriz51[i][j]);
-                      }
-                      printf("\n");
-                  }
-                  
-                  printf("\nLos números originales de la segunda fueron: \n");
-                  
-                  for (i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          printf(" %.2f ", matriz52[i][j]);
-                      }
-                      printf("\n");
-                  }
-                  
-                  printf("\nSumando los números de ambas da: \n");
-                  
-                  for (i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                          printf(" %.2f ", matriz53[i][j]);
-                      }
-                      printf("\n");
-                  }
-              }
+        }
+    }
 
-              if (opcion==8){
-                for(i=0; i<n; i++){
-                      for (j=0; j<n; j++){
-                        i==j ? printf(" 1 ") : printf(" 0 ");
-                      }
-                      printf("\n");
-                }
-              }
+    printf("\n\n");
 
-          break;
-          
-          case 4: case 6: case 7:
-          
-              do{
-                  printf("\nDame el número entero de filas y el número entero de columnas de tu matriz separadas por enter o espacio: \n");
-                  scanf("%d %d", &n, &m);
-                  if (n<1 || m<1){
-                      printf("Error: No pueden ser filas o columnas menores a 1.\n");
-                  }
-              }while (n<1 || m<1);
-
-              float matriz[n][m], matriz2[n][m];
-          
-              for (i=0; i<n; i++){
-                  for (j=0; j<m; j++){
-                      matriz[i][j] = 0;
-                      matriz2[i][j]=0;
-                  }
-              }  
-
-              if(opcion==4){
-                  printf("\nDame el número por el que quiere multipliacar (escalar): \n");
-                  scanf("%f", &escalar);
-
-                  for(i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                          printf("Dame el número entero de la posicion %d , %d\n", i+1, j+1);
-                          scanf("%f", &matriz[i][j]);
-                          matriz2[i][j] = matriz[i][j] * escalar;
-                      }
-                  }
-                
-                    printf("\nLos números originales fueron: \n");
-
-                  for (i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                          printf(" %.2f ", matriz[i][j]);
-                      }
-                      printf("\n");
-                  }
-
-                    printf("\nLos resultados fueron: \n");                  
-
-                  for (i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                          printf(" %.2f  ", matriz2[i][j]);
-                      }
-                      printf("\n");
-                  }
-
-                  printf("\n");
-                  printf("El escalar era %.2f", escalar);
-              }
-
-              if (opcion==6 || opcion==7){
-
-                  for(i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                          printf("Dame el número de la posicion %d , %d\n", i+1, j+1);
-                          scanf("%f", &matriz[i][j]);
-                          matriz2[i][j]= matriz[i][j];
-                      }
-                  }
-          
-                  printf("\nLos números originales fueron: \n");
-          
-                  for (i=0; i<n; i++){
-                      for (j=0; j<m; j++){
-                          printf(" %.2f ", matriz[i][j]);
-                      }
-                      printf("\n");
-                  }
-
-                  if (opcion==6){
-          
-                      for (i=0; i<n; i++){
-                          for (j=0; j<m; j++){
-                              for (x=0;x<n; x++){
-                                  for(y=0; y<m; y++){
-                                      if (matriz2[i][j]<matriz2[x][y]){
-                                        numero = matriz2[i][j];
-                                        matriz2[i][j] = matriz2[x][y];
-                                        matriz2[x][y]= numero;
-                                      }
-                                  }
-                              }
-                          }
-                      }
-
-                      printf("\nLos números ordenados de menor a mayor son: \n");
-          
-                      for (i=0; i<n; i++){
-                          for (j=0; j<m; j++){
-                              printf(" %.2f  ", matriz2[i][j]);
-                          }
-                          printf("\n");
-                      }
-                  }
-          
-                  if (opcion==7){
-
-                      for (i=0; i<n; i++){
-                          for (j=0; j<m; j++){
-                              for (x=0;x<n; x++){
-                                  for(y=0; y<m; y++){
-                                      if (matriz2[i][j]>matriz2[x][y]){
-                                        numero = matriz2[i][j];
-                                        matriz2[i][j] = matriz2[x][y];
-                                        matriz2[x][y]= numero;
-                                      }
-                                  }
-                              }
-                          }
-                      }
-
-                      printf("\nLos números ordenados de mayor a menor son: \n");
-          
-                      for (i=0; i<n; i++){
-                          for (j=0; j<m; j++){
-                              printf(" %.2f ", matriz2[i][j]);
-                          }
-                          printf("\n");
-                      }
-                  }   
-              }
-          break; 
-      }
-  } while (opcion!=9);
-  return 0;
+	return 0;
 }
