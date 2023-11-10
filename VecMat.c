@@ -2,6 +2,8 @@
 	Ejercicio de funciones con vectores y matrices
 	Osorio Garci Paola Montserrat
 	Alan Torres Ruiz
+	ICI 1º
+	10/11/2023
 */
 
 #include <stdio.h>
