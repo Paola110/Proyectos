@@ -34,8 +34,8 @@ void mymn(int arr[]){
 	may=arr[0];
 
 	for (i=0; i<5; i++){
-		if (arr[i]<men) ? men=arr[i];
-		if (arr[i]>may) ? may=arr[i];
+		arr[i]<men ? men=arr[i];
+		arr[i]>may ? may=arr[i];
 	}
 
 	printf("De estos números, el menor es %d y el mayor es %d", men, may);
