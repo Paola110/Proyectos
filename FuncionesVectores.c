@@ -1,32 +1,14 @@
 #include <stdio.h>
-#include <conio.h>
 #include <locale.h>
 
 
-int creavector(int arr[]);
-int mayormenor(int arr[]);
-
-main(){
-	
-    setlocale(LC_ALL, "spanish");
-		
-	int arr[5];
-	
-	printf("\nBienvenido, entremos a la funcion crear vector\n");
-	creavector(arr);
-	printf("\nAhora entremos a la funcion mayor menor\n");
-	mayormenor(arr);
-	return 0;
-}
-
-int creavector(int arr[]){
+void creavector(int arr[]){
 	int i;
 
 	printf("\nIngrese los 5 números del vector separados por enter o espacios\n");
 	for (i=0; i<5; i++){
 		scanf("%d", &arr[i]);
 	}
-	return arr;
 }
 
 int mayormenor(int arr[]){
@@ -34,7 +16,7 @@ int mayormenor(int arr[]){
 	
 	printf("\nBuscaremos número mayor y menor del vector\n");
 	
-	for (i=0; i<5; i++){
+    for (i=0; i<5; i++){
 		if (i=0){
 			men=arr[i];
 			may=arr[i];
@@ -46,9 +28,27 @@ int mayormenor(int arr[]){
 			may=arr[i];
 		}
 	}
-	printf("\nEl menor es %d y el mayor es %d\n", men, may);
 	
+}
+
+int main(){
+	
+    setlocale(LC_ALL, "spanish");
+		
+	int arr[5], i=0, men=0, may=0;
+	
+	printf("\nBienvenido, entremos a la funcion crear vector\n");
+	creavector(arr);
+
+    for (i=0; i<5; i++){
+        printf("%d  ", arr[i]);
+    }
+	printf("\nAhora entremos a la funcion mayor menor\n");
+	mayormenor(arr);
+    printf("\nEl menor es %d y el mayor es %d\n", men, may);
 	return 0;
 }
+ 
+
 
 
