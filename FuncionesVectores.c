@@ -9,43 +9,48 @@ void creavector(int arr[]){
 	for (i=0; i<5; i++){
 		scanf("%d", &arr[i]);
 	}
+	return;
 }
 
-int mayormenor(int arr[]){
+void mayormenor(int arr2[]){
 	int i, men=0, may=0;
-	
+
+	for (i=0; i<5; i++){
+		printf("%d  ", arr2[i]);
+	}
+
 	printf("\nBuscaremos número mayor y menor del vector\n");
 	
     for (i=0; i<5; i++){
 		if (i=0){
-			men=arr[i];
-			may=arr[i];
+			men=arr2[i];
+			may=arr2[i];
 		}
-		if (men<arr[i]){
-			men=arr[i];
+		if (men<arr2[i]&& i=!0){
+			men=arr2[i];
 		}
-		if (may>arr[i]){
-			may=arr[i];
+		if (may>arr2[i]&& i=!0){
+			may=arr2[i];
 		}
 	}
-	
+	return;
 }
 
 int main(){
 	
     setlocale(LC_ALL, "spanish");
 		
-	int arr[5], i=0, men=0, may=0;
+	int arr[5], arr2[5], i=0, men=0, may=0;
 	
 	printf("\nBienvenido, entremos a la funcion crear vector\n");
 	creavector(arr);
-
+	
     for (i=0; i<5; i++){
-        printf("%d  ", arr[i]);
+        arr2[i]=arr[i];
     }
+
 	printf("\nAhora entremos a la funcion mayor menor\n");
-	mayormenor(arr);
-    printf("\nEl menor es %d y el mayor es %d\n", men, may);
+	mayormenor(arr2);
 	return 0;
 }
  
