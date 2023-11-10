@@ -1,45 +1,66 @@
+/*
+	Ejercicio de funciones con vectores y matrices
+	Osorio Garci Paola Montserrat
+	Alan Torres Ruiz
+*/
+
 #include <stdio.h>
 
+#define COL 3
 
-void creavector(int arr[]);
-void mymn(int arr[]);
+void cantiaimpu(float impu[]);
+void impuapli(float impu[], float apli[][COL]);
 
 int main(){	
 		
-	int arr[5], i=0;
+	float impu[3], apli[3][3]; 
+	int i=0;
 	
-	printf("\nBienvenido, entremos a la funci%cn crear vector\n", 162);
-	creavector(arr);
-	printf("\nSu vector es\n\n");
-	for (i=0; i<5; i++){
-		printf(" %d ", arr[i]);
+	printf("\nBienvenido, entremos a la funci%cn para introducir sus cantidades\n", 162);
+	cantiaimpu(impu);
+	printf("\nSus cantidades con impuesto del 5 porciento aplicado son:\n\n");
+	for (i=0; i<3; i++){
+		printf(" %.3f ", impu[i]*1.05);
 	}
+
 	printf("\n");
-	printf("\nAhora entremos a la funci%cn para buscar el mayor y el menor de los valores\n", 162);
-	mymn(arr);
+	printf("\nAhora entremos a la funci%cn para ingresar los intereses y aplicarlos\n", 162);
+	impuapli(impu, apli);
 	return 0;
 }
 
-void creavector(int arr[]){
+void cantiaimpu(float impu[]){
 	int i;
 
-	printf("\nIngrese los 5 n%cmeros del vector separados por enter o espacios\n", 163);
-	for (i=0; i<5; i++){
-		scanf("%d", &arr[i]);
+	printf("\nIngrese los 3 n%cmeros a aplicar 5 porciento de interes separados por enter o espacios\n", 163);
+	for (i=0; i<3; i++){
+		scanf("%f", &impu[i]);
+		//impu[i] = impu[i]*1.05;
 	}
 	return;
 }
 
-void mymn(int arr[]){
-	int i, may=0, men=0;
+void impuapli(float impu[], float apli[][COL]){
+	int i=0, j=0;
 
-	men=arr[0];
-	may=arr[0];
-
-	for (i=0; i<5; i++){
-		arr[i]<men ? men=arr[i] : men;
-		arr[i]>may ? may=arr[i] : may;
+	for (i=0; i<3; i++){
+			apli[0][i]=impu[i];
+			printf("\nIngresa el interes a aplicar a la cantidad #%d, ejemplo 5 porciento: ", i+1);
+			scanf("%f", &apli[1][i]);
+			apli[2][i]= apli[0][i]+(apli[0][i]*(apli[1][i]/100));
 	}
 
-	printf("\nDe estos n%cmeros, el menor es %d y el mayor es %d\n",163, men, may);
+	for (i=0; i<3; i++){
+		if (i==0){
+			printf("\n\n.Sus cantidades son: ");
+		} else if (i==1){
+			printf ("\n\nLos intereses a aplicar son: ");
+		} else if (i==2){
+			printf ("\n\nLas cantidades con interes aplicado son: ");
+		}
+		for (j=0; j<3; j++){
+			printf(" %.3f ", apli[i][j]);
+		}
+	}
+
 }
