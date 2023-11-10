@@ -37,7 +37,6 @@ void cantiaimpu(float impu[]){
 	printf("\nIngrese los 3 n%cmeros a aplicar 5 porciento de interes separados por enter o espacios\n", 163);
 	for (i=0; i<3; i++){
 		scanf("%f", &impu[i]);
-		//impu[i] = impu[i]*1.05;
 	}
 	return;
 }
