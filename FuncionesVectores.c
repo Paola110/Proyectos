@@ -6,7 +6,7 @@ void mymn(int arr[]);
 
 int main(){	
 		
-	int arr[5], arr2[5], i=0, men=0, may=0, maymen[2];
+	int arr[5], i=0;
 	
 	printf("\nBienvenido, entremos a la funci%cn crear vector\n", 162);
 	creavector(arr);
@@ -31,7 +31,7 @@ void creavector(int arr[]){
 }
 
 void mymn(int arr[]){
-	int i, may, men;
+	int i, may=0, men=0;
 
 	men=arr[0];
 	may=arr[0];
