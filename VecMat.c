@@ -20,7 +20,7 @@ int main(){
 	
 	printf("\nBienvenido, entremos a la funci%cn para introducir sus cantidades\n", 162);
 	cantiaimpu(impu);
-	printf("\nSus cantidades con impuesto del 5 porciento aplicado son:\n\n");
+	printf("\nSus cantidades con interes del 5 porciento aplicado son:\n\n");
 	for (i=0; i<3; i++){
 		printf(" %.3f ", impu[i]*1.05);
 	}
